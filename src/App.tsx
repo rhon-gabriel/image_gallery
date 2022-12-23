@@ -1,13 +1,11 @@
-import React from 'react';
-import './App.css';
-import usePhotos from './hooks/usePhotos';
+import React from "react";
+import "./App.scss";
+import ImageGallery from "./components/ImageGallery/ImageGallery";
 
 function App() {
-  const { results } = usePhotos()
-  console.log('results', results)
   return (
     <div className="App">
-      Image gallery
+      <ImageGallery />
     </div>
   );
 }
