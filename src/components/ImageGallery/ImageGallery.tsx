@@ -26,12 +26,13 @@ const ImageGallery = () => {
 
   if (isError) return <p className="center">Failed to fetch images: {error}</p>;
 
-  const images = results.map((photo: Photos, i) => {
-    if (results.length === i + 1) {
+  const images = results?.map((photo: Photos, i) => {
+    if (results?.length === i + 1) {
       return (
         <ImageCard
           ref={lastPhotoRef}
           url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_m.jpg`}
+          id={photo.id}
           title={photo.title}
           key={photo.id}
         />
@@ -41,6 +42,7 @@ const ImageGallery = () => {
       <ImageCard
         url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_m.jpg`}
         title={photo.title}
+        id={photo.id}
         key={photo.id}
       />
     );

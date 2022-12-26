@@ -16,14 +16,15 @@ const usePhotos = (page = 1) => {
 
     getPhotos(page)
       .then((res) => {
-        setResults((prev: Photos[]) => [...prev, ...res.photo]);
-        setHasNextPage(Boolean(res.photo.length));
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        setIsError(true);
-        setError(err);
+        if (res.photo) {
+          setResults((prev: Photos[]) => prev.concat(res.photo));
+          setHasNextPage(Boolean(res.photo.length));
+          setIsLoading(false);
+        } else {
+          setIsLoading(false);
+          setIsError(true);
+          setError(res.message);
+        }
       });
   }, [page]);
 
