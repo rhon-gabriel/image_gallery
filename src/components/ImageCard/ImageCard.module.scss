@@ -26,17 +26,20 @@
 }
 
 .infoText {
-    color: rgb(255, 255, 255);
-    font-family: 'Open Sans', sans-serif;
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translateX(-50%);
     width: 250px;
+}
+
+.text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 900;
+    color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .line {

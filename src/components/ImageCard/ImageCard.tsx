@@ -29,8 +29,12 @@ const ImageCard = React.forwardRef(
           />
         )}
         <div className={styles.infoContainer}>
-          {title && <p className={styles.infoText}>{title}</p>}
-          <hr className={styles.line}></hr>
+          {title && (
+            <div className={styles.infoText}>
+              <p className={styles.text}>{title}</p>
+              <hr className={styles.line}></hr>
+            </div>
+          )}
           <div className={styles.favoriteContainer}>
             <Favorite id={id} />
           </div>

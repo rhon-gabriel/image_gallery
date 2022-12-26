@@ -34,7 +34,7 @@ const ImageGallery = () => {
           url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_m.jpg`}
           id={photo.id}
           title={photo.title}
-          key={photo.id}
+          key={`${photo.id}${i}`}
         />
       );
     }
