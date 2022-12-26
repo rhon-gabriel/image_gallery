@@ -16,16 +16,16 @@ const usePhotos = (page = 1) => {
 
     getPhotos(page)
       .then((res) => {
-        if (res.photo) {
+        if (res?.photo) {
           setResults((prev: Photos[]) => prev.concat(res.photo));
           setHasNextPage(Boolean(res.photo.length));
           setIsLoading(false);
         } else {
           setIsLoading(false);
           setIsError(true);
-          setError(res.message);
+          setError(res?.message);
         }
-      });
+      })
   }, [page]);
 
   return { isLoading, isError, error, results, hasNextPage };
